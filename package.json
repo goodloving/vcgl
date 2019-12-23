@@ -2,6 +2,12 @@
   "name": "vcgl",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "goodloving",
+    "wechat(公众号)":"chiyizao  /  迟亦早",
+    "email": "953370874@qq.com",
+    "github":"https://github.com/goodloving"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -29,7 +35,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
