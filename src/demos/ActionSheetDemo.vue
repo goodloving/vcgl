@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="onClickActionSheet">actionsheet demo</button>
+    演示 actionsheet demo
   </div>
 </template>
 
@@ -14,6 +14,9 @@ export default {
         3: "银联"
       }
     };
+  },
+  mounted(){
+    this.onClickActionSheet()
   },
   methods: {
     onClickActionSheet() {
