@@ -45,13 +45,6 @@ onSelected(index) {
 
 ### 一、Button
 
-全局引入（main.js中）：
-
-```javascript
-import { VcglButton } from "vcgl";
-Vue.use(VcglButton);
-```
-
 局部引入（单个组件中）：
 
 ```javascript
