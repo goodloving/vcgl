@@ -1,8 +1,9 @@
 <template>
   <div v-if="showAS">
     <div class="v-actionsheet-cover" @click="_cancel"></div>
-    <div class="v-actionsheet-page">
+    <div class="v-actionsheet-page" :style="{bottom:(Number(as_item_height.split('p')[0])+10)+'px'}">
       <div
+        :style="{'font-size':as_font_size,height:as_item_height,color:as_item_color}"
         :class="
           index === menusLength
             ? 'v-actionsheet-item-last'
@@ -12,12 +13,17 @@
         :key="index"
         @click.stop="_selected(item)"
       >
-        <span class="item-text">{{ item }}</span>
+        <img :src="icons[index]" :style="{height:as_font_size,'margin-right':'5px'}">
+        <span>{{ item }}</span>
       </div>
     </div>
     <div class="v-actionsheet-cancel">
-      <div class="v-actionsheet-cancle" @click.stop="_cancel">
-        <span class="item-cancel">取消</span>
+      <div
+        :style="{'font-size':as_font_size,height:as_item_height,color:as_cancel_color}"
+        class="v-actionsheet-cancle-item"
+        @click.stop="_cancel">
+        <img v-if="menusLength+2===icons.length" :src="icons[menusLength]" :style="{height:as_font_size,'margin-right':'5px'}">
+        <span>取消</span>
       </div>
     </div>
   </div>
@@ -33,6 +39,26 @@ export default {
     menus: {
       type: Object,
       default: () => {}
+    },
+    icons: {
+      type: Array,
+      default: () => []
+    },
+    as_font_size: {
+      type: String,
+      default: "17px"
+    },
+    as_item_color: {
+      type: String,
+      default: "#000000"
+    },
+    as_cancel_color: {
+      type: String,
+      default: "#3c86f5"
+    },
+    as_item_height: {
+      type: String,
+      default: "45px"
     }
   },
   computed: {
@@ -92,6 +118,7 @@ export default {
     height: 45px;
     width: 100%;
     border-bottom: 0.5px solid #e9e7e7;
+    font-size: 17px;
   }
   .v-actionsheet-item-last {
     display: flex;
@@ -99,16 +126,7 @@ export default {
     justify-content: center;
     height: 45px;
     width: 100%;
-  }
-  .item-text {
     font-size: 17px;
-  }
-  .v-actionsheet-cancle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 45px;
-    width: 100%;
   }
 }
 .v-actionsheet-cancel {
@@ -121,16 +139,14 @@ export default {
   flex-direction: column;
   border-radius: 20px;
   z-index: 19999;
-  .item-cancel {
-    color: #3c86f5;
-    font-size: 17px;
-  }
-  .v-actionsheet-cancle {
+  .v-actionsheet-cancle-item {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 45px;
     width: 100%;
+    color: #3c86f5;
+    font-size: 17px;
   }
 }
 </style>
