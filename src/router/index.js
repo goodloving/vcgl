@@ -13,6 +13,11 @@ const routes = [
     path: "/actionsheet",
     name: "actionsheet",
     component: () => import("../demos/ActionSheetDemo.vue")
+  },
+  {
+    path: "/button",
+    name: "button",
+    component: () => import("../demos/ButtonDemo.vue")
   }
 ];
 
