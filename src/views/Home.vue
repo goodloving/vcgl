@@ -1,7 +1,10 @@
 <template>
   <div class="contianer">
-    <btn @click="onClickActionSheet">actionsheet demo</btn>
-    <btn @click="onClickBtn">button demo</btn>
+    <img alt="Vue logo" src="../assets/images/logo.png" style="margin-top:30px"/>
+    <h3>Welcome to VCGL Vue.js App </h3>
+    <btn class="btn" @click="onClickActionSheet">actionsheet demo</btn>
+    <btn class="btn" @click="onClickBtn">button demo</btn>
+    <btn class="btn" @click="onClickLoading">loading demo</btn>
   </div>
 </template>
 
@@ -17,6 +20,9 @@ export default {
     },
     onClickBtn(){
       this.$router.push("/button");
+    },
+    onClickLoading(){
+      this.$router.push("/loading");
     }
   }
 };
@@ -28,5 +34,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  .btn{
+    margin-top: 5px;
+  }
 }
 </style>
