@@ -188,3 +188,59 @@ export default {
 | onCancel       | Function | 点击蒙层区和“取消”隐藏ActionSheet和蒙层区                    |
 
 
+
+### 三、Loading
+
+全局引入（main.js）：
+
+```javascript
+import { VcglLoading } from "vcgl";
+Vue.use(VcglLoading);
+```
+
+使用：
+
+```javascript
+<template>
+  <div>
+    <div @click="showLoading">show loading</div>
+  </div>
+</template>
+
+<script>
+export default {
+  methods: {
+    showLoading(){
+      this.$vgLoading.show({
+        text: "加载中...",
+        fontsize:"20px",
+        fontcolor:"#666666",
+        background:"red"
+      });
+      setTimeout(() => {
+        this.closeLoading()
+      }, 3000);
+    },
+    closeLoading() {
+      this.$vgLoading.close();
+    }
+  }
+
+}
+</script>
+
+<style></style>
+```
+
+属性：
+
+| 属性名         | 类型     | 描述                                                         |
+| -------------- | -------- | ------------------------------------------------------------ |
+| text          | String  | loading上显示的文字 |
+| icon_loading  | String    | loading上显示的icon，内部设置了旋转，传输一行静态图片即可 |
+| width | String   | 设置icon的高度，默认为"38px"，格式为"50px"、"100%"等 |
+| height  | String   | 设置icon的高度，默认为"38px"，格式为"50px"等    |
+| fontsize | String   | 设置显示字体的大小，默认为"15px"，格式为"50px"等 |
+| fontcolor | String   | 设置显示字体颜色，默认为" \#ffffff"，设置格式"#000000"、"rgba(14,14,14,1)"、"linear-gradient(to right, #000000 0%,#ffffff 100%)"等 |
+| background | String   | 设置显示字体颜色，默认为"rgba(17, 17, 17, 0.7)"，设置格式"#000000"、"rgba(14,14,14,1)"、"linear-gradient(to right, #000000 0%,#ffffff 100%)"等 |
+
